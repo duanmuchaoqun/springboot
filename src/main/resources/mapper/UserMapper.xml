@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.duanmu.springboot.mapper.UserMapper">
+    <select id="listUser" resultType="com.duanmu.springboot.bean.User">
+        SELECT
+          id,
+          name,
+          email,
+          mobile
+        FROM
+          dm_user
+    </select>
+
+</mapper>
