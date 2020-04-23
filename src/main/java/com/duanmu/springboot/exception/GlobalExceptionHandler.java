@@ -21,7 +21,7 @@ public class GlobalExceptionHandler {
             BindException be = (BindException) e;
             logger.warn(be.toString(),e);
             result.setCode("200")
-                    .setMessage(((BindException) e).getFieldError().getDefaultMessage());
+                    .setMessage(be.getFieldError().getDefaultMessage());
         }
         return result;
     }
