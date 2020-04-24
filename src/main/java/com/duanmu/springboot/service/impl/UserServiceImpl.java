@@ -1,5 +1,6 @@
 package com.duanmu.springboot.service.impl;
 
+import com.duanmu.springboot.bean.PageResult;
 import com.duanmu.springboot.bean.User;
 import com.duanmu.springboot.common.param.UserParam;
 import com.duanmu.springboot.mapper.UserMapper;
@@ -16,8 +17,9 @@ public class UserServiceImpl implements UserService{
     UserMapper userMapper;
 
     @Override
-    public PageInfo<User> listUser(UserParam userParam) {
+    public PageResult listUser(UserParam userParam) {
         PageHelper.startPage(userParam.getPageNo(),userParam.getPageSize());
-        return new PageInfo<>(userMapper.listUser(userParam));
+        PageInfo<User> pageInfo = new PageInfo<>(userMapper.listUser(userParam));
+        return new PageResult(pageInfo.getList(),pageInfo.getTotal());
     }
 }

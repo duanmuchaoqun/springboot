@@ -1,9 +1,9 @@
 package com.duanmu.springboot.controller;
 
+import com.duanmu.springboot.bean.PageResult;
 import com.duanmu.springboot.bean.User;
 import com.duanmu.springboot.common.param.UserParam;
 import com.duanmu.springboot.service.UserService;
-import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,7 +18,7 @@ public class UserController {
     UserService userService;
 
     @PostMapping("/listUser")
-    public PageInfo<User> listUser(UserParam userParam){
+    public PageResult listUser(UserParam userParam){
         return userService.listUser(userParam);
     }
 
